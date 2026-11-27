@@ -1,0 +1,6 @@
+{
+  "name": "动捕工坊 · Kinetix Studio",
+  "description": "基于浏览器视觉追踪与 3D 骨骼实时重定向的专业级动作捕捉与 BVH 导出工作台。",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

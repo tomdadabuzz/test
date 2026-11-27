@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">动捕工坊</string>
+    <string name="title_activity_main">动捕工坊</string>
+    <string name="package_name">com.kinetix.mocapstudio</string>
+    <string name="custom_url_scheme">com.kinetix.mocapstudio</string>
+</resources>
