@@ -6,7 +6,11 @@ import {defineConfig} from 'vite';
 import {VitePWA} from 'vite-plugin-pwa';
 
 export default defineConfig(() => {
+  const basePath = process.env.VITE_BASE_PATH || '/';
+  const normalizedBase = basePath.endsWith('/') ? basePath : `${basePath}/`;
+
   return {
+    base: normalizedBase,
     plugins: [
       react(),
       tailwindcss(),
@@ -21,7 +25,7 @@ export default defineConfig(() => {
           'mediapipe/wasm/*',
         ],
         manifest: {
-          id: '/',
+          id: normalizedBase,
           name: '动捕工坊 · Kinetix Studio',
           short_name: '动捕工坊',
           description: '支持实时摄像头与视频解析的 3D 骨骼动作捕捉与 BVH 导出工作台。',
@@ -29,23 +33,23 @@ export default defineConfig(() => {
           background_color: '#090B0E',
           display: 'standalone',
           orientation: 'any',
-          start_url: '/',
-          scope: '/',
+          start_url: normalizedBase,
+          scope: normalizedBase,
           icons: [
             {
-              src: '/pwa-192x192.png',
+              src: `${normalizedBase}pwa-192x192.png`,
               sizes: '192x192',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/pwa-512x512.png',
+              src: `${normalizedBase}pwa-512x512.png`,
               sizes: '512x512',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/pwa-maskable-512x512.png',
+              src: `${normalizedBase}pwa-maskable-512x512.png`,
               sizes: '512x512',
               type: 'image/png',
               purpose: 'maskable',

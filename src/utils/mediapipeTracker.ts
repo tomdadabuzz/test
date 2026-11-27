@@ -59,7 +59,8 @@ export async function getPoseLandmarker(customModelBuffer?: Uint8Array): Promise
   }
 
   const loader = (async () => {
-    const vision = await FilesetResolver.forVisionTasks('/mediapipe/wasm');
+    const wasmBase = `${import.meta.env.BASE_URL}mediapipe/wasm`;
+    const vision = await FilesetResolver.forVisionTasks(wasmBase);
 
     if (customModelBuffer) {
       if (landmarkerInstance) {
