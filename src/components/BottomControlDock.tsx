@@ -182,7 +182,7 @@ export const BottomControlDock: React.FC<BottomControlDockProps> = ({
   return (
     <section
       aria-label="动作捕捉与数据集控制台"
-      className={`fixed bottom-4 left-1/2 -translate-x-1/2 w-[min(1100px,95vw)] z-20 transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={`fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2 w-[min(1100px,95vw)] z-20 transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         collapsed ? 'translate-y-[calc(100%-34px)]' : 'translate-y-0'
       }`}
     >

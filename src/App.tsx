@@ -729,7 +729,7 @@ export default function App() {
   );
 
   return (
-    <div className="h-screen w-screen flex flex-col bg-[#090B0E] text-slate-100 overflow-hidden select-none">
+    <div className="h-[100dvh] w-screen flex flex-col bg-[#090B0E] text-slate-100 overflow-hidden select-none">
       <TopBar
         activeTab={workspaceTab}
         onSelectTab={handleSelectWorkspaceTab}

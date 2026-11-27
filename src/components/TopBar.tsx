@@ -25,7 +25,7 @@ export const TopBar: React.FC<TopBarProps> = ({
   recordedFrameCount,
 }) => {
   return (
-    <header className="h-14 shrink-0 px-4 sm:px-6 flex items-center justify-between gap-4 sm:gap-8 bg-[#0E1117] border-b border-white/10 z-20">
+    <header className="min-h-14 pt-[env(safe-area-inset-top)] pb-1 shrink-0 px-4 sm:px-6 flex items-center justify-between gap-4 sm:gap-8 bg-[#0E1117] border-b border-white/10 z-20">
       {/* Zone 1: Single-element Brand Wordmark */}
       <a
         href="#studio"
