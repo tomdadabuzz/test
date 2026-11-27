@@ -315,6 +315,19 @@ export function serializeFloat32Npy(matrix: number[][]): Uint8Array {
 }
 
 export function downloadBinaryFile(filename: string, data: Uint8Array, mime = 'application/octet-stream') {
+  const bridge = (window as unknown as {
+    HarmonyBridge?: { saveBase64File?: (name: string, b64: string) => void };
+  }).HarmonyBridge;
+  if (bridge?.saveBase64File) {
+    let binary = '';
+    const chunkSize = 0x8000;
+    for (let i = 0; i < data.length; i += chunkSize) {
+      binary += String.fromCharCode(...data.subarray(i, i + chunkSize));
+    }
+    bridge.saveBase64File(filename, btoa(binary));
+    return;
+  }
+
   const copy = new Uint8Array(data.byteLength);
   copy.set(data);
   const blob = new Blob([copy.buffer], { type: mime });

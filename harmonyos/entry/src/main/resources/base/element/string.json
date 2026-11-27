@@ -1,0 +1,20 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "动捕工坊 · Kinetix Studio 3D动作捕捉"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "3D动作捕捉与数据集工作台"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "动捕工坊"
+    },
+    {
+      "name": "camera_reason",
+      "value": "用于实时摄像头人体骨骼姿态捕捉与动作录制"
+    }
+  ]
+}

@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "cap:sync": "npm run build && npx cap sync android",
+    "harmony:sync": "npm run build && node scripts/sync-harmony.mjs",
     "android:open": "npx cap open android",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit"

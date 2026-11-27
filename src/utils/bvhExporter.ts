@@ -414,6 +414,20 @@ export function exportTakeToCsv(take: MotionTake): string {
 }
 
 export function downloadTextFile(filename: string, content: string, mimeType = 'text/plain;charset=utf-8') {
+  const bridge = (window as unknown as {
+    HarmonyBridge?: { saveBase64File?: (name: string, b64: string) => void };
+  }).HarmonyBridge;
+  if (bridge?.saveBase64File) {
+    const bytes = new TextEncoder().encode(content);
+    let binary = '';
+    const chunkSize = 0x8000;
+    for (let i = 0; i < bytes.length; i += chunkSize) {
+      binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
+    }
+    bridge.saveBase64File(filename, btoa(binary));
+    return;
+  }
+
   const blob = new Blob([content], { type: mimeType });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
